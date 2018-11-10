@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Welcome</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="content">
+    <div class="header">
+      <h1>Dora</h1>
+      <p>Your helpful little friend</p>
+    </div>
+
+    <div class="body">
+      <app-button [color]="'#FFF'" [textColor]="'#4096EE'" (click)="goToPassengerPage()">
+        I am a passenger
+      </app-button>
+
+      <app-button [color]="'#FFF'" [textColor]="'#4096EE'" (click)="goToLogin()">
+        I am a staff member
+      </app-button>
+    </div>
+  </div>
+</ion-content>

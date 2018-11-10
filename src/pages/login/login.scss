@@ -1,0 +1,44 @@
+page-login {
+
+  & > ion-content > .scroll-content {
+    display: flex;
+    flex-flow: column wrap;
+
+    & > .body {
+      display: flex;
+      flex-flow: column wrap;
+      flex: 15;
+      padding: 24px;
+
+      h1 {
+        margin-top: 24px!important;
+        font-weight: 700;
+      }
+      
+      & > ion-list > ion-item {
+        padding-left: 0;
+
+        & > .item-inner > .input-wrapper {
+          & > ion-input {
+            & > input::placeholder {
+              color: rgba(0, 0, 0, 0.7);
+            }
+          }
+        }
+      }
+    }
+
+    & > .login-container {
+      background: #EEE;
+      padding: 20px;
+      display: flex;
+      justify-content: flex-end;
+
+      & > app-button > div {
+        width: 100px;
+        padding: 10px;
+        height: 36px;
+      }
+    }
+  }
+}

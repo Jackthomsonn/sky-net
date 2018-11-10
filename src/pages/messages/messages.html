@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Dora</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <ion-title>A helpful assistant</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="messages" #scrollMe>
+    <div class="message" *ngFor="let message of messages" [ngClass]="{'sender': message.sender, 'reciever': !message.sender}">{{
+      message.content }}</div>
+  </div>
+  <div class="quick-suggestions">
+    <div class="suggestion" *ngFor="let suggestion of suggestions" (click)="sendSuggestion(suggestion.content, suggestion.sender)">
+      {{ suggestion.content }}
+    </div>
+  </div>
+  <div class="message-box">
+    <ion-input ([ngModel])="message" placeholder="Text Input"></ion-input>
+    <ion-icon name="send" (click)="sendMessage()"></ion-icon>
+  </div>
+</ion-content>

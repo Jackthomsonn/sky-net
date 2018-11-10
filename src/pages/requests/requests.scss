@@ -1,0 +1,29 @@
+page-requests {
+  & > ion-content > .scroll-content {
+    
+    & > ion-list {
+
+      & > ion-list-header > .item-inner > .input-wrapper > ion-label {
+        display: flex;
+        justify-content: space-between;
+      }
+      
+      & > ion-item {
+      
+        & > .item-inner > div > ion-label {
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: space-between;
+          align-items: center;
+          
+          & > app-button > div{
+            width: 140px;
+            padding: 12px;
+            height: 16px;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}

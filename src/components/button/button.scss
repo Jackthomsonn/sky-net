@@ -1,0 +1,15 @@
+app-button > div {
+  border-radius: 40px;
+  padding: 12px;
+  min-width: 30%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  & > ion-icon {
+    margin-left: 12px;
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,48 @@
+page-splash {
+
+  ion-header > .toolbar {
+    border: 0;
+  }
+
+  & > ion-content > .scroll-content {
+    background: #4096EE;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+
+    & > .content {
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 100vh;
+
+      & > .header {
+        & > h1, p {
+          color: #FFF;
+          text-align: center;
+        }
+  
+        & > h1 {
+          font-size: 60px;
+        }
+  
+        & > p {
+          font-size: 18px;
+        }
+      }
+
+      & > .body {
+        height: 100px;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+
+        & > app-button:last-of-type > div {
+          background: rgba(255, 255, 255, 0)!important;
+          color: #FFF!important;
+        }
+      }
+    }
+  }
+}

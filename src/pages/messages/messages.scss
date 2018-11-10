@@ -1,0 +1,65 @@
+page-messages {
+  & > ion-content {
+    & > .scroll-content {
+      display: flex;
+      flex-flow: column nowrap;
+
+      & > .messages {
+        display: flex;
+        flex-flow: column nowrap;
+        flex: 15;
+        padding: 24px;
+        height: 200px;
+        overflow-y: scroll;
+
+        & > .message {
+          border-radius: 20px;
+          padding: 12px;
+          color: #FFF;
+          margin-bottom: 24px;
+
+          &.sender {
+            background: #4096EE;
+            margin-left: 120px;
+          }
+          &.reciever {
+            background: lighten(#4096EE, 8%);
+            margin-right: 120px;
+          }
+        }
+      }
+
+      & > .quick-suggestions {
+        display: flex;
+        justify-content: space-evenly;
+        flex: 1;
+        margin-bottom: 36px;
+        margin-top: 18px;
+
+        & > .suggestion {
+          box-shadow: 1px 2px 4px #DDD;
+          border-radius: 40px;
+          padding: 8px;
+          height: 34px;
+        }
+      }
+      
+      & > .message-box {
+        display: flex;
+        align-items: center;
+        background: #EEE;
+        width: 100%;
+        padding: 20px;
+
+        & > ion-icon {
+          color: #4096EE;
+          font-size: 36px;
+        }
+
+        & > ion-input {
+          color: #222;
+        }
+      }
+    }
+  }
+}

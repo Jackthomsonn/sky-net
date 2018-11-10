@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="body">
+    <h1>Login</h1>
+
+    <ion-list>
+      <ion-item>
+        <ion-input type="text" placeholder="Username"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="password" placeholder="Password"></ion-input>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div class="login-container">
+    <app-button [color]="'#4096EE'" [textColor]="'#FFF'" (click)="login()">Login <ion-icon name="lock"></ion-icon></app-button>
+  </div>
+</ion-content>

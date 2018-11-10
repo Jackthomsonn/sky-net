@@ -1,19 +1,37 @@
+import { NavController, ActionSheetController } from 'ionic-angular';
+import { RequestsPage } from './../requests/requests';
 import { Component } from '@angular/core';
-
-import { AboutPage } from '../about/about';
-import { ContactPage } from '../contact/contact';
-import { HomePage } from '../home/home';
+import { IssuesPage } from '../issues/issues';
+import { SplashPage } from '../splash/splash';
 
 @Component({
   templateUrl: 'tabs.html'
 })
+
 export class TabsPage {
+  public requests = RequestsPage;
+  public issues = IssuesPage;
 
-  tab1Root = HomePage;
-  tab2Root = AboutPage;
-  tab3Root = ContactPage;
+  constructor(
+    private navCtrl: NavController,
+    private actionSheetCtrl: ActionSheetController
+  ) { }
 
-  constructor() {
+  public logout = () => {
+    const actionSheet = this.actionSheetCtrl.create({
+      title: 'Are you sure you want to logout?',
+      buttons: [
+        {
+          text: 'Yes',
+          handler: () => {
+            this.navCtrl.setRoot(SplashPage);
+          }
+        }, {
+          text: 'No'
+        }
+      ]
+    });
 
+    actionSheet.present();
   }
 }
