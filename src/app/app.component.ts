@@ -10,7 +10,7 @@ import { SplashPage } from '../pages/splash/splash';
 })
 
 export class MyApp implements OnInit {
-  rootPage: any = SplashPage;
+  public rootPage = SplashPage;
 
   constructor(
     private platform: Platform,
@@ -19,6 +19,8 @@ export class MyApp implements OnInit {
 
   async ngOnInit() {
     await this.platform.ready();
+
+    window.localStorage.removeItem('socketId')
 
     this.statusBar.styleDefault();
     this.splashScreen.hide();

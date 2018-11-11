@@ -1,4 +1,10 @@
 page-requests {
+  & > ion-header {
+    ion-navbar > .toolbar-background.toolbar-background {
+      background: #3A3437!important;
+    }
+  }
+
   & > ion-content > .scroll-content {
     
     & > ion-list {

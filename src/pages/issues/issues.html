@@ -6,24 +6,20 @@
 
 <ion-content>
   <ion-list>
-    <ion-list-header>Urgent <ion-icon name="alert"></ion-icon></ion-list-header>
-    <ion-item>
-      Lost child
-      <app-button [color]="'#4096EE'" [textColor]="'#FFF'">Mark as resolved <ion-icon name="checkmark"></ion-icon></app-button>
-    </ion-item>
-    <ion-item>
-      Merbology
-      <app-button [color]="'#4096EE'" [textColor]="'#FFF'">Mark as resolved <ion-icon name="checkmark"></ion-icon></app-button>
+    <ion-list-header>Urgent <ion-icon name="alert"></ion-icon>
+    </ion-list-header>
+    <ion-item *ngFor="let query of statusFiveRequestsList" (click)="assignIssue(query.issue_id)">
+      <span *ngIf="query.priority === 5">{{ query?.title ? query?.title : query?.message }}</span>
+      <app-button [color]="'#4096EE'" [textColor]="'#FFF'">Assign to me <ion-icon name="checkmark"></ion-icon>
+      </app-button>
     </ion-item>
 
-    <ion-list-header>Miscellaneous <ion-icon name="bookmark"></ion-icon></ion-list-header>
-    <ion-item>
-      Herbology the second
-      <app-button [color]="'#4096EE'" [textColor]="'#FFF'">Mark as resolved <ion-icon name="checkmark"></ion-icon></app-button>
-    </ion-item>
-    <ion-item>
-      Merbology the second
-      <app-button [color]="'#4096EE'" [textColor]="'#FFF'">Mark as resolved <ion-icon name="checkmark"></ion-icon></app-button>
+    <ion-list-header>Miscellaneous <ion-icon name="alert"></ion-icon>
+    </ion-list-header>
+    <ion-item *ngFor="let query of statusOneRequestsList" (click)="assignIssue(query.issue_id)">
+      <span *ngIf="query.priority === 1">{{ query?.title ? query?.title : query?.message }}</span>
+      <app-button [color]="'#4096EE'" [textColor]="'#FFF'">Assign to me <ion-icon name="checkmark"></ion-icon>
+      </app-button>
     </ion-item>
   </ion-list>
 </ion-content>

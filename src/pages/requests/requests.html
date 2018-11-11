@@ -9,12 +9,12 @@
     <ion-list-header>Common Issues</ion-list-header>
     <ion-item>
       Lost child
-      <app-button [color]="'#4096EE'" [textColor]="'#FFF'">Raise as an issue <ion-icon name="hand"></ion-icon>
+      <app-button [color]="'#4096EE'" [textColor]="'#FFF'" (click)="raiseIssue('Lost Child')">Raise issue <ion-icon name="hand"></ion-icon>
       </app-button>
     </ion-item>
     <ion-item>
-      Merbology
-      <app-button [color]="'#4096EE'" [textColor]="'#FFF'">Raise as an issue <ion-icon name="hand"></ion-icon>
+      Broken Window
+      <app-button [color]="'#4096EE'" [textColor]="'#FFF'" (click)="raiseIssue('Broken Window')">Raise issue <ion-icon name="hand"></ion-icon>
       </app-button>
     </ion-item>
   </ion-list>

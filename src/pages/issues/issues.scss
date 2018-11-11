@@ -1,34 +1,64 @@
 page-issues {
-  & > ion-content > .scroll-content {
+  & > ion-header {
+    ion-navbar > .toolbar-background.toolbar-background {
+      background: #3A3437!important;
+    }
+  }
+
+  & > ion-content {
+
+    & > .scroll-content > ion-list > ion-list-header {
+      border-top: 0!important;
+    }
+
+    & > .scroll-content {
     
-    & > ion-list {
+      & > ion-list {
+        padding-left: 0!important;
 
-      & > ion-list-header > .item-inner > .input-wrapper > ion-label {
-        display: flex;
-        justify-content: space-between;
+        ion-item {
+          padding-left: 0!important;
 
-        & > ion-icon {
-          font-size: 18px;
-          color: rgba(0, 0, 0, 0.7);
+          & > .item-inner {
+            padding-left: 16px;
+          }
         }
-      }
-      
-      & > ion-item {
-      
-        & > .item-inner > div > ion-label {
+
+        & > ion-list-header > .item-inner > .input-wrapper > ion-label {
           display: flex;
-          flex-flow: row wrap;
           justify-content: space-between;
-          align-items: center;
-          
-          & > app-button > div{
-            width: 140px;
-            padding: 12px;
-            height: 16px;
-            font-size: 12px;
+
+          & > ion-icon {
+            font-size: 18px;
+            color: rgba(0, 0, 0, 0.7);
+          }
+        }
+        
+        & > ion-item {
+        
+          & > .item-inner > div > ion-label {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: center;
+            
+            & > app-button > div{
+              width: 120px;
+              padding: 12px;
+              height: 16px;
+              font-size: 12px;
+            }
           }
         }
       }
     }
   }
+}
+
+.tab-button > ion-icon {
+  color: #3A3437!important;
+}
+
+.tab-button-text {
+  color: #3A3437!important;
 }

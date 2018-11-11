@@ -1,6 +1,6 @@
-import { TestProvider } from './../../providers/test/test';
+import { SocketProvider } from './../../providers/socket/socket';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, AlertController } from 'ionic-angular';
 
 import { Keyboard } from '@ionic-native/keyboard';
 
@@ -15,21 +15,35 @@ export class MessagesPage implements OnInit {
   public messages: any[] = [];
   public suggestions: any[] = [];
   public data: any;
-  public showSmallKeyboard: boolean;
   public message: string;
 
-  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
+  @ViewChild('chatWindow') private chatWindow: ElementRef;
 
   constructor(
     private keyboard: Keyboard,
-    private testProvider: TestProvider) {
+    private socketProvider: SocketProvider) {
   }
 
   public sendMessage = () => {
+    if (this.message === undefined) {
+      return;
+    }
+
+    if(this.message === "") {
+      return;
+    }
+
     this.scrollToBottom();
     this.messages.push({
       content: this.message,
       sender: true
+    })
+
+    const socketId = JSON.parse(window.localStorage.getItem('socketId'))
+
+    this.socketProvider.emit('query', {
+      message: this.message,
+      socketId: socketId ? socketId.current_socket_id : undefined
     })
 
     this.message = "";
@@ -38,25 +52,37 @@ export class MessagesPage implements OnInit {
   public sendSuggestion = (suggestion: string, sender: boolean) => {
     this.messages.push({ content: suggestion, sender: sender });
     this.scrollToBottom();
+
+    const socketId = JSON.parse(window.localStorage.getItem('socketId'))
+
+    this.socketProvider.emit('query', {
+      message: suggestion,
+      socketId: socketId ? socketId.current_socket_id : undefined
+    })
   }
 
   private scrollToBottom = () => {
-    this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+    this.chatWindow.nativeElement.scrollTop = this.chatWindow.nativeElement.scrollHeight;
   }
 
   ngOnInit() {
-    this.testProvider.getTestResoponse().subscribe(data => {
-      this.data = data;
-    }, (error) => {
-      this.data = 'Hello'
-    })
-
     this.suggestions.push({
       content: 'Broken Window',
       sender: true
     }, {
-        content: 'Train arrival time',
+        content: 'Ramp Assistance',
+        sender: true
+      })
+
+    this.socketProvider.on('query_response', (data) => {
+      this.messages.push({
+        content: data.title,
         sender: false
       })
+
+      this.scrollToBottom();
+
+      window.localStorage.setItem('socketId', JSON.stringify(data))
+    })
   }
 }

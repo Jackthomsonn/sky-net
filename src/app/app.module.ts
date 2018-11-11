@@ -14,12 +14,13 @@ import { MessagesPage } from './../pages/messages/messages';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { TestProvider } from '../providers/test/test';
 import { HttpClientModule } from '@angular/common/http';
 import { SplashPage } from '../pages/splash/splash';
 import { SplashPageModule } from '../pages/splash/splash.module';
 import { ComponentsModule } from '../components/components.module';
 import { RequestsPage } from '../pages/requests/requests';
+import { SocketProvider } from '../providers/socket/socket';
+import { AuthenticationProvider } from '../providers/authentication/authentication';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { RequestsPage } from '../pages/requests/requests';
     SplashScreen,
     Keyboard,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    TestProvider
+    SocketProvider,
+    AuthenticationProvider
   ]
 })
 

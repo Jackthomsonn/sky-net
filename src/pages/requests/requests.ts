@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SocketProvider } from './../../providers/socket/socket';
+import { Component, OnInit } from '@angular/core';
+import { IonicPage } from 'ionic-angular';
 
 @IonicPage()
 
@@ -8,7 +9,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'requests.html',
 })
 
-export class RequestsPage {
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+export class RequestsPage implements OnInit {
+  public requests: any[];
+
+  constructor(private socketProvider: SocketProvider) {
+  }
+
+  public raiseIssue = (message: string) => {
+    this.socketProvider.emit('query', {
+      message: message,
+      createdBy: window.localStorage.getItem('socketId')
+    })
+  }
+
+  ngOnInit() {
+    this.socketProvider.on('query_response', data => {
+      this.requests = data;
+    })
   }
 }
