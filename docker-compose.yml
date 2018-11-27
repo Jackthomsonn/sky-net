@@ -12,7 +12,6 @@ services:
     environment:
       - NGROK_PORT=app:8100
       - NGROK_PROTOCOL=http
-      - NGROK_AUTH=3fVv5QDD6Wh5jDUg7CtEg_6tsUV7Nz5gy1M6vZA7myF
 
   frontend:
     container_name: skynet_ai_frontend
